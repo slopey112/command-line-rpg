@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Command Line RPG:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Command_Line_RPG_jar</output-path>
+    <root id="archive" name="Command Line RPG.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="Source Code" />
+      <element id="module-output" name="Command Line RPG" />
+    </root>
+  </artifact>
+</component>
