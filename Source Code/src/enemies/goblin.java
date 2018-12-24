@@ -23,6 +23,7 @@ public class goblin extends enemy {
         hp = (int) Math.round(level * 1.5) + 20;
         atk = level + 3;
         def = level / 4;
+        crit = 7;
         atkMsg = "The goblin stabs you with it's sharp knife!";
         abilities = new power[1];
         abilities[0] = new shank(level, pDef);

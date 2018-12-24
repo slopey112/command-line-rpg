@@ -1,3 +1,4 @@
+import enemies.cephalon;
 import enemies.goblin;
 import enemies.whisp;
 import objects.enemy;
@@ -11,6 +12,7 @@ import java.io.*;
 public class client {
     private static player main;
     private static String[] mobs = {"whisp", "goblin"};
+    private static String[] bosses = {"cephalon"};
     public static boolean gameNew;
     public static final String invalid = "Sorry, that's not a valid choice.";
     public static void setup() throws IOException {
@@ -165,56 +167,69 @@ public class client {
                 System.out.println("Alright, first stage. Let's see how well you can do, newbie.\n");
             }
             enemy[] choices = new enemy[3];
-            for (int i = 0; i < 3; i++) {
-                int ranNum = a.nextInt(mobs.length);
-                int dif = a.nextInt(3);
-                int lvl;
-                if (i == 0) {
-                    if (main.getLevel() <= 3) {
-                        lvl = 1;
-                    } else {
-                        lvl = main.getLevel() - dif - 1;
-                    }
-                } else if (i == 1) {
-                    lvl = main.getLevel();
-                } else {
-                    lvl = main.getLevel() + dif + 1;
-                }
-                switch (ranNum) {
-                    case (0):
-                        choices[i] = new whisp(lvl);
-                        break;
-                    case (1):
-                        choices[i] = new goblin(lvl, main.getDef());
-                        break;
-                }
-            }
-            boolean test = true;
             enemy fight = new enemy();
-            while (test) {
-                System.out.println("Which monster will you fight?");
-                System.out.println("(a):");
-                choices[0].getInfo();
-                System.out.println("(b):");
-                choices[1].getInfo();
-                System.out.println("(c):");
-                choices[2].getInfo();
-                String selection = in.readLine().trim().toLowerCase();
-                switch (selection) {
-                    case ("a"):
-                        fight = choices[0];
-                        test = false;
-                        break;
-                    case ("b"):
-                        fight = choices[1];
-                        test = false;
-                        break;
-                    case ("c"):
-                        fight = choices[2];
-                        test = false;
-                        break;
-                    default:
-                        System.out.print(invalid);
+            boolean isBoss = false;
+            if (!(counter % 10 == 0) || counter == 1) {
+                for (int i = 0; i < 3; i++) {
+                    int ranNum = a.nextInt(mobs.length);
+                    int dif = a.nextInt(3);
+                    int lvl;
+                    if (i == 0) {
+                        if (main.getLevel() <= 3) {
+                            lvl = 1;
+                        } else {
+                            lvl = main.getLevel() - dif - 1;
+                        }
+                    } else if (i == 1) {
+                        lvl = main.getLevel();
+                    } else {
+                        lvl = main.getLevel() + dif + 1;
+                    }
+                    switch (mobs[ranNum]) {
+                        case ("whisp"):
+                            choices[i] = new whisp(lvl);
+                            break;
+                        case ("goblin"):
+                            choices[i] = new goblin(lvl, main.getDef());
+                            break;
+                    }
+                }
+                boolean test = true;
+                while (test) {
+                    System.out.println("Which monster will you fight?");
+                    System.out.println("(a):");
+                    choices[0].getInfo();
+                    System.out.println("(b):");
+                    choices[1].getInfo();
+                    System.out.println("(c):");
+                    choices[2].getInfo();
+                    String selection = in.readLine().trim().toLowerCase();
+                    switch (selection) {
+                        case ("a"):
+                            fight = choices[0];
+                            test = false;
+                            break;
+                        case ("b"):
+                            fight = choices[1];
+                            test = false;
+                            break;
+                        case ("c"):
+                            fight = choices[2];
+                            test = false;
+                            break;
+                        default:
+                            System.out.print(invalid);
+                            break;
+                    }
+                }
+            } else if (counter != 1){
+                System.out.println("\nYou think it'd be this easy???");
+                System.out.println("Time for the boss...");
+                int boss = a.nextInt(bosses.length);
+                isBoss = true;
+                switch (bosses[boss]) {
+                    case ("cephalon"):
+                        fight = new cephalon(counter);
                         break;
                 }
             }
@@ -225,13 +240,16 @@ public class client {
             boolean signal = false;
             int skip = -1;
             while (enemyAlive) {
+                skip = -1;
                 if (turn == 0) {
                         System.out.println("\nIt's your turn, " + main.getName() + "!");
                         System.out.println("(A)ttack");
                         System.out.println("(I)tem");
-                        System.out.println("(F)lee");
+                        if (!isBoss) System.out.println("(F)lee");
                         System.out.println("(P)ower");
-                        String choice = in.readLine().toLowerCase().trim();
+                        String choice = "";
+                        if (!isBoss) choice = in.readLine().toLowerCase().trim();
+                        else choice = in.readLine().toLowerCase().trim().replaceAll("f", "");
                         switch (choice) {
 
                             case ("a"):
@@ -316,9 +334,16 @@ public class client {
                                                                 caseI = false;
                                                                 break;
                                                             case ("attack"):
-                                                                b4 = main.getAp();
+                                                                b4 = main.getAtk();
                                                                 main.setAtk(main.getAtk() + sItem.getBuff());
                                                                 System.out.println("ATK increased from " + b4 + " ---> " + main.getAtk());
+                                                                caseI = false;
+                                                                z = false;
+                                                                break;
+                                                            case ("ability"):
+                                                                b4 = main.getAp();
+                                                                main.setAp(main.getAp() + sItem.getBuff());
+                                                                System.out.println("AP increased from " + b4 + " ---> " + main.getAp());
                                                                 caseI = false;
                                                                 z = false;
                                                                 break;
@@ -399,11 +424,13 @@ public class client {
                                     }
                                 }
                                 break;
+                            default:
+                                System.out.println(invalid);
+                                signal = true;
                         }
                     } else {
                         int action = a.nextInt(10);
                         System.out.println("\nIt's the " + fight.getName().toUpperCase() + "'s turn!!!");
-                        System.out.println(action);
                         if (fight.getHp() <= 5 && a.nextInt(5) == 0) {
                             System.out.println(fight.getName() + " has decided to flee!");
                             flee = true;
@@ -484,6 +511,9 @@ public class client {
                     if (skip == 0 && enemyAlive) {
                         turn = 0;
                         System.out.println(fight.getName() + "'s turn was skipped!");
+                    } else if (skip == 1 && enemyAlive) {
+                        turn = 1;
+                        System.out.println(fight.getName() + " skipped your turn!");
                     }
                 }
                 counter++;
@@ -512,6 +542,7 @@ public class client {
         }
     }
     public static void end(int stage) throws IOException {
+        main.setHp(0);
         System.out.println("\nHerein lies the end for " + main.getName() + ".");
         System.out.println("Final stats: ");
         main.getInfo();
@@ -554,8 +585,8 @@ public class client {
             BufferedReader asdf = new BufferedReader(new FileReader("highscores.txt"));
             for (int i = 0; i < scores.size(); i++) {
                 StringTokenizer z = new StringTokenizer(asdf.readLine());
-                String name = z.nextToken();
                 int w = Integer.parseInt(z.nextToken());
+                String name = z.nextToken();
                 if (w == three[0]) {
                     threeStr[0] = name;
                 } else if (w == three[1]) {

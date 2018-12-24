@@ -2,18 +2,18 @@ package items;
 
 import objects.item;
 
-public class AttackFlask extends item {
-    public AttackFlask(String size) {
-        description = "Permanently increases your attack power.";
-        field = "attack";
+public class AbilityFlask extends item {
+    public AbilityFlask(String size) {
+        description = "Permanently increases your ability power.";
+        field = "ability";
         switch (size) {
             case ("small"):
-                name = "Small Attack Flask";
+                name = "Small Ability Flask";
                 xp = 5;
                 buff = 1;
                 break;
             case ("medium"):
-                name = "Medium Attack Flask";
+                name = "Medium Ability Flask";
                 xp = 10;
                 buff = 3;
                 break;
