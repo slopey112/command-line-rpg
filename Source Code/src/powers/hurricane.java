@@ -1,5 +1,4 @@
 package powers;
-import objects.player;
 import objects.power;
 
 public class hurricane extends power {
@@ -9,6 +8,6 @@ public class hurricane extends power {
         affectsPlayer = 1;
         value = ap + lvl;
         cost = 15;
-        skips = true;
+        skips = 0;
     }
 }

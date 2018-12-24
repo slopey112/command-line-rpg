@@ -1,3 +1,4 @@
+import enemies.goblin;
 import enemies.whisp;
 import objects.enemy;
 import objects.player;
@@ -9,7 +10,7 @@ import java.io.*;
 
 public class client {
     private static player main;
-    private static String[] mobs = {"whisp"};
+    private static String[] mobs = {"whisp", "goblin"};
     public static boolean gameNew;
     public static final String invalid = "Sorry, that's not a valid choice.";
     public static void setup() throws IOException {
@@ -183,6 +184,9 @@ public class client {
                     case (0):
                         choices[i] = new whisp(lvl);
                         break;
+                    case (1):
+                        choices[i] = new goblin(lvl, main.getDef());
+                        break;
                 }
             }
             boolean test = true;
@@ -219,7 +223,7 @@ public class client {
             int turn = start.nextInt(2);
             boolean flee = false;
             boolean signal = false;
-            boolean skip = false;
+            int skip = -1;
             while (enemyAlive) {
                 if (turn == 0) {
                         System.out.println("\nIt's your turn, " + main.getName() + "!");
@@ -292,15 +296,15 @@ public class client {
                                                             case ("hp"):
                                                                 int b4 = main.getHp();
                                                                 main.setHp(b4 + sItem.getBuff());
-                                                                System.out.println("HP increased from " + b4 + " --> " + main.getHp());
+                                                                System.out.println("HP increased from " + b4 + " ---> " + main.getHp());
                                                                 main.removeInventory(sel);
                                                                 z = false;
                                                                 caseI = false;
                                                                 break;
                                                             case ("mana"):
-                                                                int b3 = main.getMana();
+                                                                b4 = main.getMana();
                                                                 main.setMana(main.getMana() + sItem.getBuff());
-                                                                System.out.println("Mana increased from " + b3 + " --> " + main.getMana());
+                                                                System.out.println("Mana increased from " + b4 + " ---> " + main.getMana());
                                                                 main.removeInventory(sel);
                                                                 caseI = false;
                                                                 z = false;
@@ -310,6 +314,13 @@ public class client {
                                                                 main.removeInventory(sel);
                                                                 z = false;
                                                                 caseI = false;
+                                                                break;
+                                                            case ("attack"):
+                                                                b4 = main.getAp();
+                                                                main.setAtk(main.getAtk() + sItem.getBuff());
+                                                                System.out.println("ATK increased from " + b4 + " ---> " + main.getAtk());
+                                                                caseI = false;
+                                                                z = false;
                                                                 break;
                                                         }
                                                     }
@@ -363,6 +374,7 @@ public class client {
                                                 System.out.println("Sorry, you don't seem to have enough mana to use that move.");
                                             } else {
                                                 power now = pList.get(pick - 1);
+                                                skip = now.getSkips();
                                                 if (now.getAffectsPlayer() == 1) {
                                                     int nowHP = fight.getHp();
                                                     int nMana = main.getMana();
@@ -370,6 +382,7 @@ public class client {
                                                     if (fight.getHp() <= 0) {
                                                         System.out.println(fight.getName().toUpperCase() + " KO'ed");
                                                         enemyAlive = false;
+                                                        break;
                                                     } else {
                                                         System.out.println(fight.getName().toUpperCase());
                                                         System.out.println("HP:   " + nowHP + " ---> " + fight.getHp());
@@ -390,6 +403,7 @@ public class client {
                     } else {
                         int action = a.nextInt(10);
                         System.out.println("\nIt's the " + fight.getName().toUpperCase() + "'s turn!!!");
+                        System.out.println(action);
                         if (fight.getHp() <= 5 && a.nextInt(5) == 0) {
                             System.out.println(fight.getName() + " has decided to flee!");
                             flee = true;
@@ -467,8 +481,9 @@ public class client {
                         if (turn == 0) turn = 1;
                         else turn = 0;
                     }
-                    if (skip) {
+                    if (skip == 0 && enemyAlive) {
                         turn = 0;
+                        System.out.println(fight.getName() + "'s turn was skipped!");
                     }
                 }
                 counter++;

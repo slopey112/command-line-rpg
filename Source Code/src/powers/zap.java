@@ -1,5 +1,4 @@
 package powers;
-import objects.enemy;
 import objects.power;
 
 public class zap extends power {

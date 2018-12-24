@@ -7,7 +7,7 @@ public class power {
     public int value;
     public int cost;
     public int hiddenValue;
-    public boolean skips;
+    public int skips;
 
     public String getName() {
         return name;
@@ -28,4 +28,6 @@ public class power {
     public int getCost() {
         return cost;
     }
+
+    public int getSkips() { return skips; }
 }
