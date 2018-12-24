@@ -1,7 +1,7 @@
-#READ-ME
+# READ-ME
 This is **Dungeon Crawler** by *slopey112*, a WIP *command-line RPG game*.
 
-###Installation
+### Installation
 
 The developer of this game has been incredibly lazy to streamline the process yet, but here's a quick tutorial if you don't care about the source code.
 
@@ -11,7 +11,7 @@ The developer of this game has been incredibly lazy to streamline the process ye
 
 That's it insofar as installation! Easy, right?
 
-###Gameplay
+### Gameplay
 
 As the name of this repo suggests, this is, of course, a command line utility. So let's set that up real quick.
 
