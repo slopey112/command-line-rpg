@@ -3,11 +3,12 @@ package objects;
 public class power {
     public String name;
     public String description;
-    public int affectsPlayer;
-    public int value;
-    public int cost;
-    public int hiddenValue;
-    public int skips;
+    protected int affectsPlayer;
+    protected int value;
+    protected int cost;
+    protected int dot;
+    protected int dotL;
+    protected int skips;
 
     public String getName() {
         return name;
@@ -30,4 +31,8 @@ public class power {
     }
 
     public int getSkips() { return skips; }
+
+    public int getDot() { return dot; }
+
+    public int getDotL() { return dotL; }
 }

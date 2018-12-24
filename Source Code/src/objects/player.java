@@ -1,5 +1,6 @@
 package objects;
 
+import powers.fireball;
 import powers.hurricane;
 
 import java.util.ArrayList;
@@ -109,6 +110,7 @@ public class player {
                 setAp(15);
                 setCclass("mage");
                 abilities.add(new hurricane(ap, level));
+                abilities.add(new fireball(ap));
                 break;
             case ("knight"):
                 setLevel(1);

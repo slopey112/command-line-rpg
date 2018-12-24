@@ -239,14 +239,39 @@ public class client {
             boolean flee = false;
             boolean signal = false;
             int skip = -1;
+            int count = 0;
+            boolean dotFlag = false;
+            int nowCount = 0;
+            int forHowLong = 0;
+            int dotDmg = 0;
+            int whoDot = 0;
             while (enemyAlive) {
                 skip = -1;
-                if (turn == 0) {
+                if (dotFlag) {
+                    if (count <= nowCount + forHowLong && count != nowCount + 1) {
+                        if (whoDot == 1) {
+                            System.out.println("\nOuch! " + fight.getName() + " took some damage over time!");
+                            int hpb4 = fight.getHp();
+                            fight.dealDmg(dotDmg);
+                            if (fight.getHp() <= 0) {
+                                System.out.println(fight.getName().toUpperCase() + " KO'ed!");
+                                enemyAlive = false;
+                            } else {
+                                System.out.println(fight.getName().toUpperCase());
+                                System.out.println("HP: " + hpb4 + " ---> " + fight.getHp());
+                            }
+                        }
+                    } else if (count > nowCount + forHowLong) {
+                        dotFlag = false;
+                    }
+                }
+                if (turn == 0 && enemyAlive) {
                         System.out.println("\nIt's your turn, " + main.getName() + "!");
                         System.out.println("(A)ttack");
                         System.out.println("(I)tem");
                         if (!isBoss) System.out.println("(F)lee");
                         System.out.println("(P)ower");
+                        System.out.println("(S)tats");
                         String choice = "";
                         if (!isBoss) choice = in.readLine().toLowerCase().trim();
                         else choice = in.readLine().toLowerCase().trim().replaceAll("f", "");
@@ -404,6 +429,13 @@ public class client {
                                                     int nowHP = fight.getHp();
                                                     int nMana = main.getMana();
                                                     fight.dealDmg(now.getValue());
+                                                    if (now.getDot() > 0) {
+                                                        dotFlag = true;
+                                                        forHowLong = now.getDotL();
+                                                        nowCount = count;
+                                                        dotDmg = now.getDot();
+                                                        whoDot = 1;
+                                                    }
                                                     if (fight.getHp() <= 0) {
                                                         System.out.println(fight.getName().toUpperCase() + " KO'ed");
                                                         enemyAlive = false;
@@ -424,11 +456,15 @@ public class client {
                                     }
                                 }
                                 break;
+                            case ("s"):
+                                main.getInfo();
+                                signal = true;
+                                break;
                             default:
                                 System.out.println(invalid);
                                 signal = true;
                         }
-                    } else {
+                    } else if (enemyAlive && turn == 1) {
                         int action = a.nextInt(10);
                         System.out.println("\nIt's the " + fight.getName().toUpperCase() + "'s turn!!!");
                         if (fight.getHp() <= 5 && a.nextInt(5) == 0) {
@@ -469,6 +505,7 @@ public class client {
                             }
                         }
                     }
+                    count++;
                     if (!enemyAlive && !flee) {
                         System.out.println("ENEMY REWARDS");
                         item reward = fight.getDrop();
