@@ -5,6 +5,7 @@ import objects.enemy;
 import objects.player;
 import objects.item;
 import objects.power;
+import powers.fireball;
 import powers.hurricane;
 import powers.rejuvenation;
 
@@ -20,9 +21,9 @@ public class client {
     private static void setup() throws IOException {
         main = new player();
         System.out.println("\nCHARACTER CREATION\n");
-        System.out.println("Hi, what's your name?");
+        System.out.println("Hi, what's your name? (Because the dev is lazy, no spaces.)");
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        String r = in.readLine().trim();
+        String r = in.readLine().trim().replaceAll("\\s+", "");
         if (r == "highscores") {
             System.out.println("Hey, I see what you're trying to do.");
             return;
@@ -381,9 +382,22 @@ public class client {
                                 break;
 
                             case ("p"):
-                                ArrayList<power> pList = main.getAbilities();
-                                for (int i = 0; i < pList.size(); i++) {
-                                    System.out.println((i + 1) + ": " + pList.get(i).getName());
+                                ArrayList<power> tempList = main.getAbilities();
+                                ArrayList<power> pList = new ArrayList<>();
+                                for (int i = 0; i < tempList.size(); i++) {
+                                    String name = tempList.get(i).getName();
+                                    System.out.println((i + 1) + ": " + name);
+                                    switch (name) {
+                                        case ("fireball"):
+                                            pList.add(new fireball(main.getAp()));
+                                            break;
+                                        case ("rejuvenation"):
+                                            pList.add(new rejuvenation(main.getAp()));
+                                            break;
+                                        case ("hurricane"):
+                                            pList.add(new hurricane(main.getAp(), main.getLevel()));
+                                            break;
+                                    }
                                 }
                                 boolean j = true;
                                 while (j) {
@@ -510,7 +524,7 @@ public class client {
                             }
                         }
                     }
-                    if (dotFlag) {
+                    if (dotFlag && !signal) {
                         if (dmgDot) {
                             if (count <= nowCount + forHowLong && count != nowCount) {
                                 if (whoDot == 1) {

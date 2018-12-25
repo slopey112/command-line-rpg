@@ -10,7 +10,7 @@ public class fireball extends power {
         value = ap - 5;
         cost = 10;
         skips = -1;
-        dot = -1;
+        dot = ap / 4;
         dotL = 3;
     }
 }
