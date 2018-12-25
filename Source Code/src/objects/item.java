@@ -1,11 +1,11 @@
 package objects;
 
 public class item {
-    public String name;
-    public String description;
-    public int xp;
-    public String field;
-    public int buff;
+    protected String name;
+    protected String description;
+    protected int xp;
+    protected String field;
+    protected int buff;
 
     public String getName() {
         return name;

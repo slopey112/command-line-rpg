@@ -1,8 +1,9 @@
 package objects;
 
 public class power {
-    public String name;
-    public String description;
+    protected String name;
+    protected String description;
+    protected String field;
     protected int affectsPlayer;
     protected int value;
     protected int cost;
@@ -35,4 +36,6 @@ public class power {
     public int getDot() { return dot; }
 
     public int getDotL() { return dotL; }
+
+    public String getField() { return field; }
 }

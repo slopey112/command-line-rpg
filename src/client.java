@@ -5,6 +5,8 @@ import objects.enemy;
 import objects.player;
 import objects.item;
 import objects.power;
+import powers.hurricane;
+import powers.rejuvenation;
 
 import java.util.*;
 import java.io.*;
@@ -13,9 +15,9 @@ public class client {
     private static player main;
     private static String[] mobs = {"whisp", "goblin"};
     private static String[] bosses = {"cephalon"};
-    public static boolean gameNew;
-    public static final String invalid = "Sorry, that's not a valid choice.";
-    public static void setup() throws IOException {
+    private static boolean gameNew;
+    private static final String invalid = "Sorry, that's not a valid choice.";
+    private static void setup() throws IOException {
         main = new player();
         System.out.println("\nCHARACTER CREATION\n");
         System.out.println("Hi, what's your name?");
@@ -88,7 +90,7 @@ public class client {
         System.out.println("Here are your stats: ");
         main.getInfo();
     }
-    public static void begin() throws IOException {
+    private static void begin() throws IOException {
         FileReader a = new FileReader("data.txt");
         gameNew = false;
         System.out.println("WELCOME TO DUNGEON CRAWLERS");
@@ -146,7 +148,7 @@ public class client {
             }
         }
     }
-    public static void gameplay() throws IOException {
+    private static void gameplay() throws IOException {
         System.out.println("Alright. This is it. Time for the game to actually start.");
         System.out.println("\n\n\n");
         System.out.println("_  \\     ____");
@@ -241,30 +243,14 @@ public class client {
             int skip = -1;
             int count = 0;
             boolean dotFlag = false;
+            boolean dmgDot = false;
             int nowCount = 0;
             int forHowLong = 0;
             int dotDmg = 0;
             int whoDot = 0;
             while (enemyAlive) {
+                signal = false;
                 skip = -1;
-                if (dotFlag) {
-                    if (count <= nowCount + forHowLong && count != nowCount + 1) {
-                        if (whoDot == 1) {
-                            System.out.println("\nOuch! " + fight.getName() + " took some damage over time!");
-                            int hpb4 = fight.getHp();
-                            fight.dealDmg(dotDmg);
-                            if (fight.getHp() <= 0) {
-                                System.out.println(fight.getName().toUpperCase() + " KO'ed!");
-                                enemyAlive = false;
-                            } else {
-                                System.out.println(fight.getName().toUpperCase());
-                                System.out.println("HP: " + hpb4 + " ---> " + fight.getHp());
-                            }
-                        }
-                    } else if (count > nowCount + forHowLong) {
-                        dotFlag = false;
-                    }
-                }
                 if (turn == 0 && enemyAlive) {
                         System.out.println("\nIt's your turn, " + main.getName() + "!");
                         System.out.println("(A)ttack");
@@ -301,7 +287,6 @@ public class client {
                                 while (caseI) {
                                     if (inventory.size() == 0) {
                                         System.out.println("Sorry, it looks like you don't have any items.");
-                                        turn = 0;
                                         signal = true;
                                         break;
                                     } else {
@@ -328,6 +313,10 @@ public class client {
                                                         System.out.println(invalid);
                                                     }
                                                 }
+                                            } else if (choice.equals("b")) {
+                                                signal = true;
+                                                z = false;
+                                                caseI = false;
                                             } else {
                                                 try {
                                                     int sel = Integer.parseInt(choice);
@@ -396,7 +385,8 @@ public class client {
                                 for (int i = 0; i < pList.size(); i++) {
                                     System.out.println((i + 1) + ": " + pList.get(i).getName());
                                 }
-                                while (true) {
+                                boolean j = true;
+                                while (j) {
                                     String sel = in.readLine().trim().toLowerCase();
                                     if (sel.equals("o")) {
                                         System.out.println("Which of these do you need more info on?");
@@ -410,7 +400,7 @@ public class client {
                                                 System.out.println(curr.getName().toUpperCase() + ": " + curr.getDescription());
                                                 System.out.println("Cost: " + curr.getCost());
                                                 signal = true;
-                                                break;
+                                                j = false;
                                             }
                                         } catch (NumberFormatException e) {
                                             System.out.println(invalid);
@@ -428,26 +418,41 @@ public class client {
                                                 if (now.getAffectsPlayer() == 1) {
                                                     int nowHP = fight.getHp();
                                                     int nMana = main.getMana();
-                                                    fight.dealDmg(now.getValue());
                                                     if (now.getDot() > 0) {
                                                         dotFlag = true;
+                                                        dmgDot = true;
                                                         forHowLong = now.getDotL();
                                                         nowCount = count;
                                                         dotDmg = now.getDot();
                                                         whoDot = 1;
                                                     }
+                                                    fight.dealDmg(now.getValue());
                                                     if (fight.getHp() <= 0) {
                                                         System.out.println(fight.getName().toUpperCase() + " KO'ed");
                                                         enemyAlive = false;
-                                                        break;
+                                                        j = false;
                                                     } else {
                                                         System.out.println(fight.getName().toUpperCase());
                                                         System.out.println("HP:   " + nowHP + " ---> " + fight.getHp());
                                                         System.out.println(main.getName().toUpperCase());
                                                         main.setMana(main.getMana() - now.getCost());
                                                         System.out.println("MANA: " + nMana + " ---> " + main.getMana());
-                                                        break;
+                                                        j = false;
                                                     }
+                                                    break;
+                                                } else if (now.getAffectsPlayer() == 0) {
+                                                    if (now.getDot() == -1) {
+                                                        dotFlag = true;
+                                                        forHowLong = now.getDotL();
+                                                        nowCount = count;
+                                                        dotDmg = now.getValue();
+                                                        whoDot = 0;
+                                                    }
+                                                    int nowHP = main.getHp();
+                                                    System.out.println(main.getName().toUpperCase());
+                                                    main.setHp(main.getHp() + now.getValue());
+                                                    System.out.println("HP: " + nowHP + " ---> " + main.getHp());
+                                                    j = false;
                                                 }
                                             }
                                         } catch (NumberFormatException e) {
@@ -502,6 +507,40 @@ public class client {
                             } else {
                                 System.out.println(main.getName().toUpperCase());
                                 System.out.println("HP: " + b4 + " ---> " + main.getHp());
+                            }
+                        }
+                    }
+                    if (dotFlag) {
+                        if (dmgDot) {
+                            if (count <= nowCount + forHowLong && count != nowCount) {
+                                if (whoDot == 1) {
+                                    System.out.println("\nOuch! " + fight.getName() + " took some damage over time!");
+                                    int hpb4 = fight.getHp();
+                                    fight.dealDmg(dotDmg);
+                                    if (fight.getHp() <= 0) {
+                                        System.out.println(fight.getName().toUpperCase() + " KO'ed!");
+                                        enemyAlive = false;
+                                    } else {
+                                        System.out.println(fight.getName().toUpperCase());
+                                        System.out.println("HP: " + hpb4 + " ---> " + fight.getHp());
+                                    }
+                                }
+                            } else if (count > nowCount + forHowLong) {
+                                dotFlag = false;
+                            }
+                        } else {
+                            if (count == nowCount + forHowLong || !enemyAlive || flee) {
+                                System.out.println("\nUh oh! Your power is fading!");
+                                int hpb4 = main.getHp();
+                                main.dealDmg(dotDmg + main.getDef());
+                                if (main.getHp() <= 0) {
+                                    System.out.println(main.getName() + "... Your power... It's fading...");
+                                    alive = false;
+                                    break;
+                                } else {
+                                    System.out.println(main.getName().toUpperCase());
+                                    System.out.println("HP: " + hpb4 + " ---> " + main.getHp());
+                                }
                             }
                         }
                     }
@@ -573,6 +612,23 @@ public class client {
             main.setLevel(main.getLevel() + 1);
             System.out.println("Meet your new self!");
             main.getInfo();
+            if (main.getLevel() == 10) {
+                System.out.println("\nYou have also unlocked a new ability!");
+                switch (main.getCclass()) {
+                    case ("mage"):
+                        main.addAbility(new rejuvenation(main.getAp()));
+                        System.out.println("REJUVENATION: A healing sprite that temporarily substantially increases HP.");
+                        break;
+                }
+            } else if (main.getLevel() == 20) {
+                System.out.println("\nCongrats! New ability time!");
+                switch (main.getCclass()) {
+                    case ("mage"):
+                        main.addAbility(new hurricane(main.getLevel(), main.getAp()));
+                        System.out.println("HURRICANE: A blast of wind that stuns the opponent.");
+                        break;
+                }
+            }
         } else {
             System.out.println("You are level " + main.getLevel() + " with " + main.getXp() + " XP.");
             System.out.println("You only need " + (threshold - main.getXp()) + " XP more!\n\n");
@@ -686,6 +742,7 @@ public class client {
     public static void main(String[] args) throws IOException {
         boolean running = true;
         Random a = new Random();
+
         while (running) {
             begin();
             gameplay();

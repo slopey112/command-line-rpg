@@ -7,13 +7,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e378b0e-c08d-47f5-8308-c3d8eac9028d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Source Code/src/powers/fireball.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source Code/src/powers/rejuvenation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source Code/src/objects/enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/Source Code/src/objects/enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source Code/src/objects/item.java" beforeDir="false" afterPath="$PROJECT_DIR$/Source Code/src/objects/item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source Code/src/objects/player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Source Code/src/objects/player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source Code/src/objects/power.java" beforeDir="false" afterPath="$PROJECT_DIR$/Source Code/src/objects/power.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Command_Line_RPG_jar/data.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Command_Line_RPG_jar/highscores.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source Code/src/powers/fireball.java" beforeDir="false" afterPath="$PROJECT_DIR$/Source Code/src/powers/fireball.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source Code/src/powers/hurricane.java" beforeDir="false" afterPath="$PROJECT_DIR$/Source Code/src/powers/hurricane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Command Line RPG/client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Command Line RPG/client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Source Code/objects/enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Source Code/objects/enemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Source Code/objects/item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Source Code/objects/item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Source Code/objects/player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Source Code/objects/player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Source Code/objects/power.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Source Code/objects/power.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Source Code/powers/fireball.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Source Code/powers/fireball.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Source Code/powers/hurricane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Source Code/powers/hurricane.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -42,7 +50,7 @@
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="55" />
+          <entry key="JAVA" value="66" />
           <entry key="Manifest" value="2" />
           <entry key="Markdown" value="2" />
           <entry key="PLAIN_TEXT" value="6" />
@@ -50,7 +58,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="38367" />
+          <entry key="JAVA" value="40509" />
           <entry key="Markdown" value="2083" />
           <entry key="PLAIN_TEXT" value="18" />
         </counts>
@@ -59,11 +67,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16">
-              <caret line="258" column="36" lean-forward="true" selection-start-line="258" selection-start-column="36" selection-end-line="258" selection-end-column="36" />
+            <state relative-caret-position="3060">
+              <caret line="251" column="31" selection-start-line="251" selection-start-column="31" selection-end-line="251" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -71,45 +79,32 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="240">
-                <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Source Code/src/powers/fireball.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+            <state relative-caret-position="105">
+              <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Source Code/src/objects/power.java">
+        <entry file="file://$PROJECT_DIR$/Source Code/src/powers/rejuvenation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
+            <state relative-caret-position="135">
+              <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Source Code/src/objects/player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="458">
+              <caret line="113" column="48" selection-start-line="113" selection-start-column="48" selection-end-line="113" selection-end-column="48" />
               <folding>
-                <element signature="e#503#504#0" expanded="true" />
-                <element signature="e#530#531#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Source Code/src/powers/hurricane.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -139,6 +134,11 @@
       <find>whisp</find>
       <find>skip</find>
       <find>counter</find>
+      <find>flee</find>
+      <find>uh oh</find>
+      <find>Uh</find>
+      <find>si</find>
+      <find>level</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -156,23 +156,24 @@
         <option value="$PROJECT_DIR$/Source Code/src/items/MagicPotion.java" />
         <option value="$PROJECT_DIR$/Source Code/src/items/HealingPotion.java" />
         <option value="$PROJECT_DIR$/Source Code/src/items/EmptyBottle.java" />
-        <option value="$PROJECT_DIR$/Source Code/src/objects/enemy.java" />
         <option value="$PROJECT_DIR$/Source Code/src/enemies/whisp.java" />
         <option value="$PROJECT_DIR$/highscores.txt" />
         <option value="$PROJECT_DIR$/Source Code/src/powers/zap.java" />
         <option value="$PROJECT_DIR$/Source Code/src/powers/shank.java" />
-        <option value="$PROJECT_DIR$/Source Code/src/objects/item.java" />
-        <option value="$PROJECT_DIR$/Source Code/src/powers/hurricane.java" />
         <option value="$PROJECT_DIR$/Source Code/src/enemies/goblin.java" />
         <option value="$PROJECT_DIR$/Source Code/src/items/AttackFlask.java" />
         <option value="$PROJECT_DIR$/Source Code/src/items/AbilityFlask.java" />
         <option value="$PROJECT_DIR$/Source Code/src/enemies/cephalon.java" />
-        <option value="$PROJECT_DIR$/Source Code/src/powers/laser_beam.java" />
-        <option value="$PROJECT_DIR$/Source Code/src/objects/power.java" />
-        <option value="$PROJECT_DIR$/Source Code/src/objects/player.java" />
-        <option value="$PROJECT_DIR$/Source Code/src/powers/fireball.java" />
-        <option value="$PROJECT_DIR$/src/client.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/Source Code/src/objects/enemy.java" />
+        <option value="$PROJECT_DIR$/Source Code/src/objects/item.java" />
+        <option value="$PROJECT_DIR$/Source Code/src/objects/power.java" />
+        <option value="$PROJECT_DIR$/Source Code/src/powers/hurricane.java" />
+        <option value="$PROJECT_DIR$/Source Code/src/powers/fireball.java" />
+        <option value="$PROJECT_DIR$/Source Code/src/powers/laser_beam.java" />
+        <option value="$PROJECT_DIR$/Source Code/src/powers/rejuvenation.java" />
+        <option value="$PROJECT_DIR$/src/client.java" />
+        <option value="$PROJECT_DIR$/Source Code/src/objects/player.java" />
       </list>
     </option>
   </component>
@@ -260,6 +261,38 @@
             <path>
               <item name="Command Line RPG" type="b2602c69:ProjectViewProjectNode" />
               <item name="Command Line RPG" type="462c0819:PsiDirectoryNode" />
+              <item name="Source Code" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Command Line RPG" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Command Line RPG" type="462c0819:PsiDirectoryNode" />
+              <item name="Source Code" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Command Line RPG" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Command Line RPG" type="462c0819:PsiDirectoryNode" />
+              <item name="Source Code" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="enemies" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Command Line RPG" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Command Line RPG" type="462c0819:PsiDirectoryNode" />
+              <item name="Source Code" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="objects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Command Line RPG" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Command Line RPG" type="462c0819:PsiDirectoryNode" />
+              <item name="Source Code" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="powers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Command Line RPG" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Command Line RPG" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -273,7 +306,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545692578091" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545698433095" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -349,18 +382,18 @@
       <workItem from="1545530585472" duration="18633000" />
       <workItem from="1545608915390" duration="9000" />
       <workItem from="1545612049032" duration="19000" />
-      <workItem from="1545619106108" duration="10543000" />
+      <workItem from="1545619106108" duration="15295000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50467000" />
+    <option name="totallyTimeSpent" value="55219000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27110156" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27110156" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -369,7 +402,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2951807" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2746988" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -454,27 +487,10 @@
     <entry file="file://$PROJECT_DIR$/data.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Source Code/src/objects/enemy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Source Code/src/powers/steal.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Source Code/src/objects/item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -540,13 +556,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Source Code/src/powers/laser_beam.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Source Code/src/items/AbilityFlask.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -560,58 +569,85 @@
     <entry file="file://$PROJECT_DIR$/highscores.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Source Code/src/objects/power.java">
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="120">
+            <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Source Code/src/objects/item.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
+        <state relative-caret-position="45">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Source Code/src/objects/enemy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
           <folding>
-            <element signature="e#503#504#0" expanded="true" />
-            <element signature="e#530#531#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Source Code/src/objects/player.java">
+    <entry file="file://$PROJECT_DIR$/Source Code/src/objects/power.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="112" column="48" selection-start-line="112" selection-start-column="48" selection-end-line="112" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="435">
+          <caret line="39" column="46" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Source Code/src/powers/hurricane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+        <state relative-caret-position="105">
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Source Code/src/powers/fireball.java">
+    <entry file="file://$PROJECT_DIR$/Source Code/src/powers/laser_beam.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+        <state relative-caret-position="105">
+          <caret line="7" column="72" selection-start-line="7" selection-start-column="72" selection-end-line="7" selection-end-column="72" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client.java">
+    <entry file="file://$PROJECT_DIR$/Source Code/src/objects/player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="258" column="36" lean-forward="true" selection-start-line="258" selection-start-column="36" selection-end-line="258" selection-end-column="36" />
+        <state relative-caret-position="458">
+          <caret line="113" column="48" selection-start-line="113" selection-start-column="48" selection-end-line="113" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="240">
-            <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/Source Code/src/powers/rejuvenation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Source Code/src/powers/fireball.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3060">
+          <caret line="251" column="31" selection-start-line="251" selection-start-column="31" selection-end-line="251" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

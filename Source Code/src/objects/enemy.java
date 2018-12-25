@@ -5,18 +5,16 @@ import items.EmptyBottle;
 import java.util.Random;
 
 public class enemy {
-    public int hp;
-    public int atk;
-    public int crit;
-    public int mana;
-    public int ap;
-    public int level;
-    public int xpdrop;
-    public int def;
-    public power[] abilities;
-    public item[] drops;
-    public String name;
-    public String atkMsg;
+    protected int hp;
+    protected int atk;
+    protected int crit;
+    protected int level;
+    protected int xpdrop;
+    protected int def;
+    protected power[] abilities;
+    protected item[] drops;
+    protected String name;
+    protected String atkMsg;
 
     public int getXp() {
         return xpdrop;
